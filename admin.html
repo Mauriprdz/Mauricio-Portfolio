@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Login -->
+    <div id="login-container">
+        <h2>Iniciar Sesión - Administrador</h2>
+        <input type="text" id="username" placeholder="Usuario">
+        <input type="password" id="password" placeholder="Contraseña">
+        <button onclick="login()">Ingresar</button>
+        <p id="error-message">Usuario o contraseña incorrectos.</p>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="admin-container" style="display: none;">
+        <header class="admin-header">
+            <h1>Panel de Administración</h1>
+            <button id="logout-btn" onclick="logout()">Cerrar Sesión</button>
+        </header>
+
+        <div class="admin-sidebar">
+            <ul>
+                <li><a href="#" class="active" data-section="general">Información General</a></li>
+                <li><a href="#" data-section="about">Sobre Mí</a></li>
+                <li><a href="#" data-section="education">Educación</a></li>
+                <li><a href="#" data-section="skills">Habilidades</a></li>
+                <li><a href="#" data-section="projects">Proyectos</a></li>
+                <li><a href="#" data-section="security">Seguridad</a></li>
+            </ul>
+        </div>
+
+        <div class="admin-content">
+            <!-- General Information Section -->
+            <div id="general" class="admin-section active">
+                <h2>Información General</h2>
+                <form id="general-form">
+                    <div class="form-group">
+                        <label for="name">Nombre Completo:</label>
+                        <input type="text" id="name" name="name" value="Mauricio Prieto">
+                    </div>
+                    <div class="form-group">
+                        <label for="title">Título Profesional:</label>
+                        <input type="text" id="title" name="title" value="Estudiante y desarollador Frontend">
+                    </div>
+                    <div class="form-group">
+                        <label for="github">GitHub URL:</label>
+                        <input type="url" id="github" name="github" value="#">
+                    </div>
+                    <div class="form-group">
+                        <label for="linkedin">LinkedIn URL:</label>
+                        <input type="url" id="linkedin" name="linkedin" value="#">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" value="#">
+                    </div>
+                    <button type="submit" class="save-btn">Guardar Cambios</button>
+                </form>
+            </div>
+
+            <!-- About Me Section -->
+            <div id="about" class="admin-section">
+                <h2>Sobre Mí</h2>
+                <form id="about-form">
+                    <div class="form-group">
+                        <label for="profile-pic">Foto de Perfil:</label>
+                        <input type="file" id="profile-pic" name="profile-pic">
+                        <div class="current-image">
+                            <p>Imagen actual:</p>
+                            <img src="assets/IMG_8203.jpg" alt="Foto de perfil" id="current-profile-pic">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="about-text">Descripción:</label>
+                        <textarea id="about-text" name="about-text" rows="6">Soy un desarrollador web apasionado por crear soluciones digitales innovadoras...</textarea>
+                    </div>
+                    <button type="submit" class="save-btn">Guardar Cambios</button>
+                </form>
+            </div>
+
+            <!-- Education Section -->
+            <div id="education" class="admin-section">
+                <h2>Educación</h2>
+                <div id="education-items">
+                    <div class="education-item-admin">
+                        <h3>Educación #1</h3>
+                        <form class="education-form">
+                            <div class="form-group">
+                                <label for="institution">Institución:</label>
+                                <input type="text" name="institution" value="UTCH BIS">
+                            </div>
+                            <div class="form-group">
+                                <label for="career">Carrera:</label>
+                                <input type="text" name="career" value="Tecnologias de la informacion">
+                            </div>
+                            <div class="form-group">
+                                <label for="years">Años:</label>
+                                <input type="text" name="years" value="2024 - 2027">
+                            </div>
+                            <button type="button" class="delete-btn">Eliminar</button>
+                        </form>
+                    </div>
+                </div>
+                <button id="add-education" class="add-btn">+ Agregar Educación</button>
+                <button type="button" class="save-btn" id="save-education">Guardar Cambios</button>
+            </div>
+
+            <!-- Skills Section -->
+            <div id="skills" class="admin-section">
+                <h2>Habilidades</h2>
+                <div class="skills-categories">
+                    <div class="skill-category-admin">
+                        <h3>Frontend</h3>
+                        <div class="skills-list" id="frontend-skills">
+                            <div class="skill-item">
+                                <input type="text" value="HTML">
+                                <select class="skill-icon">
+                                    <option value="fab fa-html5" selected>HTML5</option>
+                                    <option value="fab fa-css3-alt">CSS3</option>
+                                    <option value="fab fa-js">JavaScript</option>
+                                    <option value="fab fa-react">React</option>
+                                    <option value="fab fa-node-js">Node.js</option>
+                                    <option value="fas fa-database">Database</option>
+                                    <option value="fab fa-java">Java</option>
+                                    <option value="fab fa-git-alt">Git</option>
+                                    <option value="fab fa-github">GitHub</option>
+                                    <option value="fas fa-terminal">Terminal</option>
+                                    <option value="fas fa-code">Code</option>
+                                </select>
+                                <button class="delete-skill">X</button>
+                            </div>
+                            <div class="skill-item">
+                                <input type="text" value="CSS">
+                                <select class="skill-icon">
+                                    <option value="fab fa-html5">HTML5</option>
+                                    <option value="fab fa-css3-alt" selected>CSS3</option>
+                                    <option value="fab fa-js">JavaScript</option>
+                                    <option value="fab fa-react">React</option>
+                                    <option value="fab fa-node-js">Node.js</option>
+                                    <option value="fas fa-database">Database</option>
+                                    <option value="fab fa-java">Java</option>
+                                    <option value="fab fa-git-alt">Git</option>
+                                    <option value="fab fa-github">GitHub</option>
+                                    <option value="fas fa-terminal">Terminal</option>
+                                    <option value="fas fa-code">Code</option>
+                                </select>
+                                <button class="delete-skill">X</button>
+                            </div>
+                        </div>
+                        <button class="add-skill" data-category="frontend">+ Agregar Habilidad</button>
+                    </div>
+
+                    <div class="skill-category-admin">
+                        <h3>Backend</h3>
+                        <div class="skills-list" id="backend-skills">
+                            <div class="skill-item">
+                                <input type="text" value="Node.js">
+                                <select class="skill-icon">
+                                    <option value="fab fa-html5">HTML5</option>
+                                    <option value="fab fa-css3-alt">CSS3</option>
+                                    <option value="fab fa-js">JavaScript</option>
+                                    <option value="fab fa-react">React</option>
+                                    <option value="fab fa-node-js" selected>Node.js</option>
+                                    <option value="fas fa-database">Database</option>
+                                    <option value="fab fa-java">Java</option>
+                                    <option value="fab fa-git-alt">Git</option>
+                                    <option value="fab fa-github">GitHub</option>
+                                    <option value="fas fa-terminal">Terminal</option>
+                                    <option value="fas fa-code">Code</option>
+                                </select>
+                                <button class="delete-skill">X</button>
+                            </div>
+                        </div>
+                        <button class="add-skill" data-category="backend">+ Agregar Habilidad</button>
+                    </div>
+                </div>
+                <button id="add-category" class="add-btn">+ Agregar Categoría</button>
+                <button type="button" class="save-btn" id="save-skills">Guardar Cambios</button>
+            </div>
+
+            <!-- Projects Section -->
+            <div id="projects" class="admin-section">
+                <h2>Proyectos</h2>
+                <div id="projects-items">
+                    <div class="project-item-admin">
+                        <h3>Proyecto #1</h3>
+                        <form class="project-form">
+                            <div class="form-group">
+                                <label for="project-title">Título:</label>
+                                <input type="text" name="project-title" value="Proyecto Integrador">
+                            </div>
+                            <div class="form-group">
+                                <label for="project-image">Imagen:</label>
+                                <input type="file" name="project-image">
+                                <div class="current-image">
+                                    <p>Imagen actual:</p>
+                                    <img src="assets/5-plantas-que-encontraras-en-el-desierto-de-chihuahua-1280x720x80xX.jpg" alt="Imagen del proyecto">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="project-description">Descripción:</label>
+                                <textarea name="project-description" rows="4">Actualmente se desarolla una aplicacion web para el Cuidado de plantas con ayuda de la IA</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="project-demo">URL Demo:</label>
+                                <input type="url" name="project-demo" value="#">
+                            </div>
+                            <div class="form-group">
+                                <label for="project-github">URL GitHub/Figma:</label>
+                                <input type="url" name="project-github" value="#">
+                            </div>
+                            <button type="button" class="delete-btn">Eliminar</button>
+                        </form>
+                    </div>
+                </div>
+                <button id="add-project" class="add-btn">+ Agregar Proyecto</button>
+                <button type="button" class="save-btn" id="save-projects">Guardar Cambios</button>
+            </div>
+
+            <!-- Security Section -->
+            <div id="security" class="admin-section">
+                <h2>Seguridad</h2>
+                <form id="security-form">
+                    <div class="form-group">
+                        <label for="current-username">Usuario Actual:</label>
+                        <input type="text" id="current-username" name="current-username" value="admin" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-username">Nuevo Usuario:</label>
+                        <input type="text" id="new-username" name="new-username">
+                    </div>
+                    <div class="form-group">
+                        <label for="current-password">Contraseña Actual:</label>
+                        <input type="password" id="current-password" name="current-password">
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">Nueva Contraseña:</label>
+                        <input type="password" id="new-password" name="new-password">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirmar Nueva Contraseña:</label>
+                        <input type="password" id="confirm-password" name="confirm-password">
+                    </div>
+                    <button type="submit" class="save-btn">Actualizar Credenciales</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

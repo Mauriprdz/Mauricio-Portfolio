@@ -1,0 +1,216 @@
+/* Admin Panel Styles */
+body {
+    background-color: #f5f5f5;
+}
+
+.admin-header {
+    background-color: #333;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+#logout-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.admin-sidebar {
+    width: 250px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    height: calc(100vh - 60px);
+    top: 60px;
+    left: 0;
+    overflow-y: auto;
+}
+
+.admin-sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.admin-sidebar ul li {
+    margin: 0;
+}
+
+.admin-sidebar ul li a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    border-left: 4px solid transparent;
+    transition: all 0.3s;
+}
+
+.admin-sidebar ul li a:hover,
+.admin-sidebar ul li a.active {
+    background-color: #444;
+    border-left-color: #007bff;
+}
+
+.admin-content {
+    margin-left: 250px;
+    padding: 20px;
+    margin-top: 60px;
+}
+
+.admin-section {
+    display: none;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+
+.admin-section.active {
+    display: block;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.save-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.add-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 20px 0;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.current-image {
+    margin-top: 10px;
+}
+
+.current-image img {
+    max-width: 200px;
+    max-height: 150px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.education-item-admin,
+.project-item-admin {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.skill-category-admin {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.skills-list {
+    margin-bottom: 15px;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.skill-item input {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.skill-item select {
+    width: 150px;
+    margin-right: 10px;
+}
+
+.delete-skill {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .admin-sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 0;
+    }
+    
+    .admin-content {
+        margin-left: 0;
+        margin-top: 0;
+    }
+    
+    .admin-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    #logout-btn {
+        margin-top: 10px;
+    }
+}
